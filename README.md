@@ -10,4 +10,4 @@ So, I have created a project with a minimal architecture with following intentio
 
 I have implemented a minimal architecture because sometimes I want to test if
 a specific library or component is well isolated from android framework,
-but in this project architecture is not important, except when sample is related to architecture.
+but in this project, architecture is not important, except when sample is related to architecture.
