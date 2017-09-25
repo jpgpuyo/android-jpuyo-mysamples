@@ -5,7 +5,7 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.widget.Toast;
 
-import com.focusings.focusingsworld.R;
+import com.jpuyo.mysamples.R;
 import com.jpuyo.mysamples.domain.interactor.users.GetCurrentUserCase;
 import com.jpuyo.mysamples.domain.interactor.users.model.User;
 import com.jpuyo.mysamples.infrastructure.RootActivity;
