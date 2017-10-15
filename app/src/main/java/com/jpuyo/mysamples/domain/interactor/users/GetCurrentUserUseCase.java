@@ -52,15 +52,15 @@ public class GetCurrentUserUseCase extends UseCase {
     protected Observable buildUseCaseObservable() {
 
         if (getCurrentUserRequest.isTypeCurrentUserDefer()) {
-            return buildUseCaseForTypeCurrentUserDefer();
+            return buildUseCaseForTypePollingWithDefer();
         } else if (getCurrentUserRequest.isTypeCurrentUserFromCallable()) {
-            return buildUseCaseForTypeCurrentUserFromCallable();
+            return buildUseCaseForTypePollingWithFromCallable();
         } else {
             return Observable.empty();
         }
     }
 
-    private Observable buildUseCaseForTypeCurrentUserDefer() {
+    private Observable buildUseCaseForTypePollingWithDefer() {
         Observable<User> currentUserPolling = Observable.defer(() -> usersRepository.getCurrentUserAsObservable())
                 .repeatWhen(completed -> {
                     logger.log(TAG, "repeatWhen");
@@ -88,7 +88,7 @@ public class GetCurrentUserUseCase extends UseCase {
         );
     }
 
-    private Observable buildUseCaseForTypeCurrentUserFromCallable() {
+    private Observable buildUseCaseForTypePollingWithFromCallable() {
         Observable<User> currentUserPolling = Observable.fromCallable(new Callable<User>() {
             @Override
             public User call() throws Exception {
