@@ -6,4 +6,8 @@ import lombok.Data;
 public class User {
 
     private String name;
+
+    public boolean isValid() {
+        return name != null && !name.isEmpty();
+    }
 }
