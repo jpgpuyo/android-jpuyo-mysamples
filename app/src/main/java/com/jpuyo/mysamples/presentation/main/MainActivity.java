@@ -60,10 +60,10 @@ public class MainActivity extends RootActivity {
         GetCurrentUserRequest getCurrentUserRequest = new GetCurrentUserRequest();
         if (request == R.id.requestTypeCurrentUserAsObservable) {
             getCurrentUserRequest.setType(GetCurrentUserRequest.POLLING_WITH_DEFER);
-            getCurrentUserRequest.setDescription(getString(R.string.get_current_user_as_observable_description));
+            getCurrentUserRequest.setDescription(getString(R.string.polling_with_defer_description));
         } else if (request == R.id.requestTypeCurrentUserAsCallable) {
             getCurrentUserRequest.setType(GetCurrentUserRequest.POLLING_WITH_FROM_CALLABLE);
-            getCurrentUserRequest.setDescription(getString(R.string.get_current_user_as_callable_description));
+            getCurrentUserRequest.setDescription(getString(R.string.polling_with_from_callable_description));
         }
         return getCurrentUserRequest;
     }

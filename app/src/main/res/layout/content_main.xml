@@ -19,7 +19,7 @@
             android:id="@+id/requestTypeCurrentUserAsObservable"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:text="@string/get_current_user_as_observable"
+            android:text="@string/polling_with_defer"
             android:textSize="18sp"
             android:checked="true"/>
 
@@ -27,7 +27,7 @@
             android:id="@+id/requestTypeCurrentUserAsCallable"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:text="@string/get_current_user_as_callable"
+            android:text="@string/polling_with_from_callable"
             android:textSize="18sp"/>
     </RadioGroup>
 
