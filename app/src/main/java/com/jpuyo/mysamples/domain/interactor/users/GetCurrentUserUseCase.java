@@ -17,7 +17,7 @@ import rx.Subscriber;
 
 public class GetCurrentUserUseCase extends UseCase {
 
-    private static final String TAG = GetCurrentUserUseCase.class.getName();
+    private static final String TAG = GetCurrentUserUseCase.class.getSimpleName();
 
     private UsersRepository usersRepository;
 
@@ -41,6 +41,10 @@ public class GetCurrentUserUseCase extends UseCase {
         this.getCurrentUserRequest = getCurrentUserRequest;
         logger.subscribe(logSubscriber);
         super.execute(useCaseSubscriber);
+    }
+
+    public String getLogTag() {
+        return TAG;
     }
 
     @Override

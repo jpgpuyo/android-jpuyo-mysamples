@@ -9,39 +9,64 @@
     tools:context="com.jpuyo.mysamples.presentation.main.MainActivity"
     tools:showIn="@layout/activity_main">
 
-    <RadioGroup
-        android:id="@+id/radioGroupRequestType"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center"
         android:orientation="vertical">
 
-        <RadioButton
-            android:id="@+id/requestTypeCurrentUserAsObservable"
+        <RadioGroup
+            android:id="@+id/radioGroupRequestType"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:text="@string/polling_with_defer"
-            android:textSize="18sp"
-            android:checked="true"/>
+            android:orientation="vertical">
 
-        <RadioButton
-            android:id="@+id/requestTypeCurrentUserAsCallable"
-            android:layout_width="fill_parent"
+            <RadioButton
+                android:id="@+id/requestTypeCurrentUserAsObservable"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="@string/polling_with_defer"
+                android:textSize="18sp" />
+
+            <RadioButton
+                android:id="@+id/requestTypeCurrentUserAsCallable"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/polling_with_from_callable"
+                android:textSize="18sp" />
+        </RadioGroup>
+
+        <TextView
+            android:id="@+id/requestDescription"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/polling_with_from_callable"
-            android:textSize="18sp"/>
-    </RadioGroup>
+            android:layout_margin="20dp"
+            tools:text="This is the description" />
 
-    <TextView
-        android:id="@+id/requestDescription"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        tools:text="This is the description"/>
+        <Button
+            android:id="@+id/execute"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/execute" />
 
-    <Button
-        android:id="@+id/execute"
+        <Button
+            android:id="@+id/clearLog"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/clear_log" />
+
+    </LinearLayout>
+
+    <com.github.pedrovgs.lynx.LynxView
+        xmlns:lynx="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/logView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/execute" />
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        lynx:filter="GetCurrentUserUseCase"
+        lynx:max_traces_to_show="1500"
+        lynx:text_size="12sp" />
 
 </LinearLayout>

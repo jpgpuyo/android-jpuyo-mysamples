@@ -10,4 +10,6 @@
     <string name="polling_with_from_callable_description">Click execute.\nWait for 5 seconds.\nPoll will be done every second until user is received.\nPolling method: fromCallable + repeatWhen</string>
 
     <string name="execute">Execute</string>
+    <string name="clear_log">Clear log</string>
+
 </resources>

@@ -8,6 +8,8 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.github.pedrovgs.lynx.LynxConfig;
+import com.github.pedrovgs.lynx.LynxView;
 import com.jpuyo.android.infrastructure.interactor.DefaultSubscriber;
 import com.jpuyo.mysamples.R;
 import com.jpuyo.mysamples.domain.interactor.users.GetCurrentUserRequest;
@@ -38,6 +40,9 @@ public class MainActivity extends RootActivity {
     @BindView(R.id.execute)
     Button buttonExecute;
 
+    @BindView(R.id.logView)
+    LynxView lynxView;
+
     private GetCurrentUserRequest getCurrentUserRequest;
 
     @Override
@@ -53,6 +58,7 @@ public class MainActivity extends RootActivity {
 
         getCurrentUserRequest = createRequest();
         updateRequestDescription();
+        configureLogView();
     }
 
     private GetCurrentUserRequest createRequest() {
@@ -72,6 +78,12 @@ public class MainActivity extends RootActivity {
         requestDescription.setText(getCurrentUserRequest.getDescription());
     }
 
+    private void configureLogView() {
+        LynxConfig lynxConfig = lynxView.getLynxConfig()
+                .setFilter(getCurrentUserUseCase.getLogTag());
+        lynxView.setLynxConfig(lynxConfig);
+    }
+
     @OnClick({R.id.requestTypeCurrentUserAsObservable, R.id.requestTypeCurrentUserAsCallable})
     public void onRequestTypeChanged() {
         getCurrentUserRequest = createRequest();
@@ -84,6 +96,11 @@ public class MainActivity extends RootActivity {
                 new GetCurrentUserSubscriber(),
                 new LogSubscriber());
         buttonExecute.setClickable(false);
+    }
+
+    @OnClick(R.id.clearLog)
+    public void onClickClearLog() {
+        lynxView.clear();
     }
 
     private final class GetCurrentUserSubscriber extends DefaultSubscriber<User> {
