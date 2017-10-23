@@ -74,15 +74,15 @@ public class GetCurrentUserUseCase extends UseCase {
         return Observable.defer(
                 () -> usersRepository.askForCurrentUser()
                         .flatMap(userRequested -> {
-                            logger.log(TAG, "currentUserPolling " + userRequested);
+                            logger.log(TAG, "currentUserPolling result askForCurrentUser=" + userRequested);
                             return currentUserPolling;
                         })
                         .filter(user -> {
-                            logger.log(TAG, "filter " + user.toString() + "user isValid " + String.valueOf(user.isValid()));
+                            logger.log(TAG, "filter " + user.toString() + " user isValid " + String.valueOf(user.isValid()));
                             return user.isValid();
                         })
                         .takeUntil(user -> {
-                            logger.log(TAG, "takeUntil " + user.toString() + "user isValid " + String.valueOf(user.isValid()));
+                            logger.log(TAG, "takeUntil " + user.toString() + " user isValid " + String.valueOf(user.isValid()));
                             return user.isValid();
                         })
                         .doOnTerminate(() -> {
@@ -106,15 +106,15 @@ public class GetCurrentUserUseCase extends UseCase {
         return Observable.defer(
                 () -> usersRepository.askForCurrentUser()
                         .flatMap(userRequested -> {
-                            logger.log(TAG, "currentUserPolling " + userRequested);
+                            logger.log(TAG, "currentUserPolling result askForCurrentUser=" + userRequested);
                             return currentUserPolling;
                         })
                         .filter(user -> {
-                            logger.log(TAG, "filter " + user.toString() + "user isValid " + String.valueOf(user.isValid()));
+                            logger.log(TAG, "filter " + user.toString() + " user isValid " + String.valueOf(user.isValid()));
                             return user.isValid();
                         })
                         .takeUntil(user -> {
-                            logger.log(TAG, "takeUntil " + user.toString() + "user isValid " + String.valueOf(user.isValid()));
+                            logger.log(TAG, "takeUntil " + user.toString() + " user isValid " + String.valueOf(user.isValid()));
                             return user.isValid();
                         })
                         .doOnTerminate(() -> {
