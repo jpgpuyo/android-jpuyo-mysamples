@@ -12,15 +12,15 @@ public class GetCurrentUserRequest {
     private int type;
     private String description;
 
-    public boolean isTypeCurrentUserDefer() {
+    public boolean isPollingWithDefer() {
         return type == POLLING_WITH_DEFER;
     }
 
-    public boolean isTypeCurrentUserFromCallable() {
+    public boolean isPollingWithFromCallable() {
         return type == POLLING_WITH_FROM_CALLABLE;
     }
 
-    public boolean isTypePollingWithSyncOnSubscribe() {
+    public boolean isPollingWithSyncOnSubscribe() {
         return type == POLLING_WITH_SYNCONSUBSCRIBE;
     }
 }

@@ -23,7 +23,7 @@
             android:orientation="vertical">
 
             <RadioButton
-                android:id="@+id/requestTypeCurrentUserAsObservable"
+                android:id="@+id/requestTypePollingWithDefer"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:checked="true"
@@ -31,14 +31,14 @@
                 android:textSize="18sp" />
 
             <RadioButton
-                android:id="@+id/requestTypeCurrentUserAsCallable"
+                android:id="@+id/requestTypePollingWithFromCallable"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/polling_with_from_callable"
                 android:textSize="18sp" />
 
             <RadioButton
-                android:id="@+id/requestTypeCurrentUserAsSyncOnSubscribe"
+                android:id="@+id/requestTypePollingWithSyncOnSubscribe"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/polling_with_sync_on_subscribe"

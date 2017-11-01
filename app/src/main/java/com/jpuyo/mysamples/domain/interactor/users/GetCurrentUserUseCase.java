@@ -57,11 +57,11 @@ public class GetCurrentUserUseCase extends UseCase {
     @Override
     protected Observable buildUseCaseObservable() {
 
-        if (getCurrentUserRequest.isTypeCurrentUserDefer()) {
+        if (getCurrentUserRequest.isPollingWithDefer()) {
             return buildUseCaseForTypePollingWithDefer();
-        } else if (getCurrentUserRequest.isTypeCurrentUserFromCallable()) {
+        } else if (getCurrentUserRequest.isPollingWithFromCallable()) {
             return buildUseCaseForTypePollingWithFromCallable();
-        } else if (getCurrentUserRequest.isTypePollingWithSyncOnSubscribe()) {
+        } else if (getCurrentUserRequest.isPollingWithSyncOnSubscribe()) {
             return buildUseCaseForTypePollingWithSyncOnSubscribe();
         } else {
             return Observable.empty();
