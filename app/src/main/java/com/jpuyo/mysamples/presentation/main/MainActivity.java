@@ -70,6 +70,9 @@ public class MainActivity extends RootActivity {
         } else if (request == R.id.requestTypeCurrentUserAsCallable) {
             getCurrentUserRequest.setType(GetCurrentUserRequest.POLLING_WITH_FROM_CALLABLE);
             getCurrentUserRequest.setDescription(getString(R.string.polling_with_from_callable_description));
+        } else if (request == R.id.requestTypeCurrentUserAsSyncOnSubscribe) {
+            getCurrentUserRequest.setType(GetCurrentUserRequest.POLLING_WITH_SYNCONSUBSCRIBE);
+            getCurrentUserRequest.setDescription(getString(R.string.polling_with_sync_subscribe_description));
         }
         return getCurrentUserRequest;
     }
@@ -84,7 +87,7 @@ public class MainActivity extends RootActivity {
         lynxView.setLynxConfig(lynxConfig);
     }
 
-    @OnClick({R.id.requestTypeCurrentUserAsObservable, R.id.requestTypeCurrentUserAsCallable})
+    @OnClick({R.id.requestTypeCurrentUserAsObservable, R.id.requestTypeCurrentUserAsCallable, R.id.requestTypeCurrentUserAsSyncOnSubscribe})
     public void onRequestTypeChanged() {
         getCurrentUserRequest = createRequest();
         updateRequestDescription();

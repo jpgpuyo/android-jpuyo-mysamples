@@ -36,6 +36,14 @@
                 android:layout_height="wrap_content"
                 android:text="@string/polling_with_from_callable"
                 android:textSize="18sp" />
+
+            <RadioButton
+                android:id="@+id/requestTypeCurrentUserAsSyncOnSubscribe"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/polling_with_sync_on_subscribe"
+                android:textSize="18sp" />
+
         </RadioGroup>
 
         <TextView

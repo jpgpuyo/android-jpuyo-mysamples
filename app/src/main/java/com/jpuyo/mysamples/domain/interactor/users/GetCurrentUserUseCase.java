@@ -13,7 +13,9 @@ import java.util.concurrent.TimeUnit;
 import javax.inject.Inject;
 
 import rx.Observable;
+import rx.Observer;
 import rx.Subscriber;
+import rx.observables.SyncOnSubscribe;
 
 public class GetCurrentUserUseCase extends UseCase {
 
@@ -59,6 +61,8 @@ public class GetCurrentUserUseCase extends UseCase {
             return buildUseCaseForTypePollingWithDefer();
         } else if (getCurrentUserRequest.isTypeCurrentUserFromCallable()) {
             return buildUseCaseForTypePollingWithFromCallable();
+        } else if (getCurrentUserRequest.isTypePollingWithSyncOnSubscribe()) {
+            return buildUseCaseForTypePollingWithSyncOnSubscribe();
         } else {
             return Observable.empty();
         }
@@ -122,5 +126,39 @@ public class GetCurrentUserUseCase extends UseCase {
                             logger.unsubscribe();
                         })
         );
+    }
+
+    private Observable buildUseCaseForTypePollingWithSyncOnSubscribe() {
+        return Observable.create(new SyncOnSubscribe<String, User>() {
+            @Override
+            protected String generateState() {
+                usersRepository.askForCurrentUser();
+                return "REQUEST_PENDING";
+            }
+
+            @Override
+            protected String next(String state, Observer<? super User> observer) {
+                if (state.equals("REQUEST_PENDING")) {
+                    if (!usersRepository.getCurrentUser().isValid()) {
+                        logger.log(TAG, "REQUEST_PENDING -> REQUEST_PENDING");
+                        return "REQUEST_PENDING";
+                    } else {
+                        logger.log(TAG, "REQUEST_PENDING -> REQUEST_COMPLETED");
+                        return "REQUEST_COMPLETED";
+                    }
+                } else if (state.equals("REQUEST_COMPLETED")) {
+                    logger.log(TAG, "REQUEST_COMPLETED -> REQUEST_COMPLETED");
+                    observer.onNext(usersRepository.getCurrentUser());
+                    observer.onCompleted();
+                }
+                return state;
+            }
+        }).takeUntil(user -> {
+            logger.log(TAG, "takeUntil " + user.toString() + " user isValid " + String.valueOf(user.isValid()));
+            return user.isValid();
+        }).doOnTerminate(() -> {
+            logger.log(TAG, "onTerminate");
+            logger.unsubscribe();
+        });
     }
 }

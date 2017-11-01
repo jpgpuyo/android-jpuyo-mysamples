@@ -4,10 +4,15 @@
 
     <!-- rxjava polling -->
     <string name="rxjava_polling_title">RxJava Polling</string>
+
     <string name="polling_with_defer">Polling with defer</string>
     <string name="polling_with_defer_description">Click execute.\nWait for 5 seconds.\nPoll will be done every second until user is received.\nPolling method: defer + repeatWhen</string>
+
     <string name="polling_with_from_callable">Polling with fromCallable</string>
     <string name="polling_with_from_callable_description">Click execute.\nWait for 5 seconds.\nPoll will be done every second until user is received.\nPolling method: fromCallable + repeatWhen</string>
+
+    <string name="polling_with_sync_on_subscribe">Polling with SyncOnSubscribe</string>
+    <string name="polling_with_sync_subscribe_description">Click execute.\nWait for 5 seconds.\nPoll will be done in every iteration until user is received.\nPolling method: SyncOnSubscribe</string>
 
     <string name="execute">Execute</string>
     <string name="clear_log">Clear log</string>
