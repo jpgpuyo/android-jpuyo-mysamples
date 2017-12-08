@@ -1,7 +1,7 @@
 package com.jpuyo.mysamples.infrastructure.dagger;
 
-import com.jpuyo.mysamples.presentation.main.MainActivity;
-import com.jpuyo.mysamples.presentation.main.MainActivityModule;
+import com.jpuyo.mysamples.features.polling.MainActivity;
+import com.jpuyo.mysamples.features.polling.MainActivityModule;
 
 import dagger.Module;
 import dagger.android.ContributesAndroidInjector;

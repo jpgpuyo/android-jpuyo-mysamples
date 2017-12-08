@@ -1,4 +1,4 @@
-package com.jpuyo.mysamples.presentation.main;
+package com.jpuyo.mysamples.features.polling;
 
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -12,10 +12,10 @@ import com.github.pedrovgs.lynx.LynxConfig;
 import com.github.pedrovgs.lynx.LynxView;
 import com.jpuyo.android.infrastructure.interactor.DefaultSubscriber;
 import com.jpuyo.mysamples.R;
-import com.jpuyo.mysamples.domain.interactor.users.GetCurrentUserRequest;
-import com.jpuyo.mysamples.domain.interactor.users.GetCurrentUserUseCase;
-import com.jpuyo.mysamples.domain.interactor.users.model.User;
-import com.jpuyo.mysamples.domain.logger.LogMessage;
+import com.jpuyo.mysamples.features.polling.interactor.GetCurrentUserRequest;
+import com.jpuyo.mysamples.features.polling.interactor.GetCurrentUserUseCase;
+import com.jpuyo.mysamples.features.polling.model.User;
+import com.jpuyo.mysamples.logger.LogMessage;
 import com.jpuyo.mysamples.infrastructure.RootActivity;
 
 import javax.inject.Inject;

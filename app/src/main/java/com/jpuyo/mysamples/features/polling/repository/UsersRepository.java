@@ -1,19 +1,17 @@
-package com.jpuyo.mysamples.data.users;
+package com.jpuyo.mysamples.features.polling.repository;
 
-import com.jpuyo.mysamples.domain.interactor.users.model.User;
-import com.jpuyo.mysamples.domain.repository.UsersRepository;
+import com.jpuyo.mysamples.features.polling.model.User;
 
 import rx.Observable;
 
-public class UsersDataRepository implements UsersRepository {
+public class UsersRepository {
 
     private User currentUser = new User();
 
-    public UsersDataRepository() {
+    public UsersRepository() {
         currentUser = new User();
     }
 
-    @Override
     public Observable<User> askForCurrentUser() {
         clear();
         Thread thread = new Thread() {
@@ -31,12 +29,10 @@ public class UsersDataRepository implements UsersRepository {
         return Observable.fromCallable(() -> currentUser);
     }
 
-    @Override
     public Observable<User> getCurrentUserAsObservable() {
         return Observable.just(currentUser);
     }
 
-    @Override
     public User getCurrentUser() {
         return currentUser;
     }

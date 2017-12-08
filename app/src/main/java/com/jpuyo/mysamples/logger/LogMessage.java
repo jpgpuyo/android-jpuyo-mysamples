@@ -1,4 +1,4 @@
-package com.jpuyo.mysamples.domain.logger;
+package com.jpuyo.mysamples.logger;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

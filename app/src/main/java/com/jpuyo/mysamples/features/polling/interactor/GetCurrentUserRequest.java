@@ -1,4 +1,4 @@
-package com.jpuyo.mysamples.domain.interactor.users;
+package com.jpuyo.mysamples.features.polling.interactor;
 
 import lombok.Data;
 

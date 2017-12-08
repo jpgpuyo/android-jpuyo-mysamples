@@ -17,7 +17,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme">
         <activity
-            android:name="com.jpuyo.mysamples.presentation.main.MainActivity"
+            android:name="com.jpuyo.mysamples.features.polling.MainActivity"
             android:configChanges="orientation"
             android:label="@string/app_name"
             android:screenOrientation="portrait"

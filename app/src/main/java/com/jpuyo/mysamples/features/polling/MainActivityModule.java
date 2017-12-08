@@ -1,8 +1,8 @@
-package com.jpuyo.mysamples.presentation.main;
+package com.jpuyo.mysamples.features.polling;
 
 
-import com.jpuyo.mysamples.data.log.AndroidLogger;
-import com.jpuyo.mysamples.domain.logger.Logger;
+import com.jpuyo.mysamples.logger.AndroidLogger;
+import com.jpuyo.mysamples.logger.Logger;
 
 import dagger.Module;
 import dagger.Provides;

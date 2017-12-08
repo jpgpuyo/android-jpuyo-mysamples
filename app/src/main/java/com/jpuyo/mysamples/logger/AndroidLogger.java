@@ -1,8 +1,6 @@
-package com.jpuyo.mysamples.data.log;
+package com.jpuyo.mysamples.logger;
 
 import com.jpuyo.android.infrastructure.interactor.RealTimePublisher;
-import com.jpuyo.mysamples.domain.logger.LogMessage;
-import com.jpuyo.mysamples.domain.logger.Logger;
 
 import javax.inject.Inject;
 
