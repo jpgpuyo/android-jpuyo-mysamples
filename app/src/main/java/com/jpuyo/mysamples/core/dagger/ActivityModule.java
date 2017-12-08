@@ -1,4 +1,4 @@
-package com.jpuyo.mysamples.infrastructure.dagger;
+package com.jpuyo.mysamples.core.dagger;
 
 import com.jpuyo.mysamples.features.polling.MainActivity;
 import com.jpuyo.mysamples.features.polling.MainActivityModule;

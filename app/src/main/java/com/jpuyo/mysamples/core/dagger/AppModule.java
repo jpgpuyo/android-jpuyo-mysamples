@@ -1,4 +1,4 @@
-package com.jpuyo.mysamples.infrastructure.dagger;
+package com.jpuyo.mysamples.core.dagger;
 
 import com.jpuyo.android.infrastructure.executor.JobExecutor;
 import com.jpuyo.android.infrastructure.executor.PostExecutionThread;

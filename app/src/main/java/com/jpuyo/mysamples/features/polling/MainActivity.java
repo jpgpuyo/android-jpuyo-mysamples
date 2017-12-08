@@ -16,7 +16,7 @@ import com.jpuyo.mysamples.features.polling.interactor.GetCurrentUserRequest;
 import com.jpuyo.mysamples.features.polling.interactor.GetCurrentUserUseCase;
 import com.jpuyo.mysamples.features.polling.model.User;
 import com.jpuyo.mysamples.logger.LogMessage;
-import com.jpuyo.mysamples.infrastructure.RootActivity;
+import com.jpuyo.mysamples.core.RootActivity;
 
 import javax.inject.Inject;
 

@@ -1,4 +1,4 @@
-package com.jpuyo.mysamples.infrastructure;
+package com.jpuyo.mysamples.core;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
