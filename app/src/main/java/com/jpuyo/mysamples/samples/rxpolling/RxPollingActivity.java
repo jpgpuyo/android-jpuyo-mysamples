@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
-import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.RadioGroup;
 import android.widget.TextView;
@@ -14,11 +13,11 @@ import com.github.pedrovgs.lynx.LynxConfig;
 import com.github.pedrovgs.lynx.LynxView;
 import com.jpuyo.android.infrastructure.interactor.DefaultSubscriber;
 import com.jpuyo.mysamples.R;
+import com.jpuyo.mysamples.core.RootActivity;
+import com.jpuyo.mysamples.logger.LogMessage;
 import com.jpuyo.mysamples.samples.rxpolling.interactor.GetCurrentUserRequest;
 import com.jpuyo.mysamples.samples.rxpolling.interactor.GetCurrentUserUseCase;
 import com.jpuyo.mysamples.samples.rxpolling.model.User;
-import com.jpuyo.mysamples.logger.LogMessage;
-import com.jpuyo.mysamples.core.RootActivity;
 
 import javax.inject.Inject;
 
