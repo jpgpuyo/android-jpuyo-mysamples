@@ -29,10 +29,6 @@ public class UsersRepository {
         return Observable.fromCallable(() -> currentUser);
     }
 
-    public Observable<User> getCurrentUserAsObservable() {
-        return Observable.just(currentUser);
-    }
-
     public User getCurrentUser() {
         return currentUser;
     }
