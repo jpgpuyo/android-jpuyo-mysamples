@@ -2,6 +2,9 @@
 <resources>
     <string name="app_name">My samples</string>
 
+    <!-- home -->
+    <string name="home_title">My samples</string>
+
     <!-- rxjava polling -->
     <string name="rxjava_polling_title">RxJava Polling</string>
 
