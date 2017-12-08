@@ -1,4 +1,4 @@
-package com.jpuyo.mysamples.features.polling;
+package com.jpuyo.mysamples.samples.rxpolling;
 
 
 import com.jpuyo.mysamples.logger.AndroidLogger;
@@ -8,7 +8,7 @@ import dagger.Module;
 import dagger.Provides;
 
 @Module
-public class MainActivityModule {
+public class RxPollingModule {
 
     @Provides
     Logger providesLogger(AndroidLogger logger) {

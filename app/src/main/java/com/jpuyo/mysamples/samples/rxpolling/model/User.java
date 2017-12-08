@@ -1,4 +1,4 @@
-package com.jpuyo.mysamples.features.polling.model;
+package com.jpuyo.mysamples.samples.rxpolling.model;
 
 import lombok.Data;
 

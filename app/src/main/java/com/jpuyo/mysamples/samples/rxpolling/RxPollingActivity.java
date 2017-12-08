@@ -1,4 +1,4 @@
-package com.jpuyo.mysamples.features.polling;
+package com.jpuyo.mysamples.samples.rxpolling;
 
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -12,9 +12,9 @@ import com.github.pedrovgs.lynx.LynxConfig;
 import com.github.pedrovgs.lynx.LynxView;
 import com.jpuyo.android.infrastructure.interactor.DefaultSubscriber;
 import com.jpuyo.mysamples.R;
-import com.jpuyo.mysamples.features.polling.interactor.GetCurrentUserRequest;
-import com.jpuyo.mysamples.features.polling.interactor.GetCurrentUserUseCase;
-import com.jpuyo.mysamples.features.polling.model.User;
+import com.jpuyo.mysamples.samples.rxpolling.interactor.GetCurrentUserRequest;
+import com.jpuyo.mysamples.samples.rxpolling.interactor.GetCurrentUserUseCase;
+import com.jpuyo.mysamples.samples.rxpolling.model.User;
 import com.jpuyo.mysamples.logger.LogMessage;
 import com.jpuyo.mysamples.core.RootActivity;
 
@@ -24,9 +24,9 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class MainActivity extends RootActivity {
+public class RxPollingActivity extends RootActivity {
 
-    private static final String TAG = MainActivity.class.getName();
+    private static final String TAG = RxPollingActivity.class.getName();
 
     @Inject
     GetCurrentUserUseCase getCurrentUserUseCase;

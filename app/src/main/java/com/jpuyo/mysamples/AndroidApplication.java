@@ -3,7 +3,7 @@ package com.jpuyo.mysamples;
 import android.app.Activity;
 import android.app.Application;
 
-import com.jpuyo.mysamples.infrastructure.dagger.DaggerAppComponent;
+import com.jpuyo.mysamples.core.dagger.DaggerAppComponent;
 
 import javax.inject.Inject;
 

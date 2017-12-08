@@ -1,6 +1,6 @@
-package com.jpuyo.mysamples.features.polling.repository;
+package com.jpuyo.mysamples.samples.rxpolling.repository;
 
-import com.jpuyo.mysamples.features.polling.model.User;
+import com.jpuyo.mysamples.samples.rxpolling.model.User;
 
 import rx.Observable;
 

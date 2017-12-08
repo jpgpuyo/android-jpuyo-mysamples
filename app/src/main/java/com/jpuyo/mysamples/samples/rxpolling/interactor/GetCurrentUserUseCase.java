@@ -1,11 +1,11 @@
-package com.jpuyo.mysamples.features.polling.interactor;
+package com.jpuyo.mysamples.samples.rxpolling.interactor;
 
 import com.jpuyo.android.infrastructure.executor.PostExecutionThread;
 import com.jpuyo.android.infrastructure.executor.ThreadExecutor;
 import com.jpuyo.android.infrastructure.interactor.UseCase;
-import com.jpuyo.mysamples.features.polling.model.User;
+import com.jpuyo.mysamples.samples.rxpolling.model.User;
 import com.jpuyo.mysamples.logger.Logger;
-import com.jpuyo.mysamples.features.polling.repository.UsersRepository;
+import com.jpuyo.mysamples.samples.rxpolling.repository.UsersRepository;
 
 import java.util.concurrent.TimeUnit;
 

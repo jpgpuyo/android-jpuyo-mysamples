@@ -4,7 +4,7 @@ import com.jpuyo.android.infrastructure.executor.JobExecutor;
 import com.jpuyo.android.infrastructure.executor.PostExecutionThread;
 import com.jpuyo.android.infrastructure.executor.ThreadExecutor;
 import com.jpuyo.android.infrastructure.executor.UIThread;
-import com.jpuyo.mysamples.features.polling.repository.UsersRepository;
+import com.jpuyo.mysamples.samples.rxpolling.repository.UsersRepository;
 
 import javax.inject.Singleton;
 
