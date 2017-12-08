@@ -7,7 +7,6 @@ import com.jpuyo.mysamples.domain.interactor.users.model.User;
 import com.jpuyo.mysamples.domain.logger.Logger;
 import com.jpuyo.mysamples.domain.repository.UsersRepository;
 
-import java.util.concurrent.Callable;
 import java.util.concurrent.TimeUnit;
 
 import javax.inject.Inject;
@@ -57,10 +56,8 @@ public class GetCurrentUserUseCase extends UseCase {
     @Override
     protected Observable buildUseCaseObservable() {
 
-        if (getCurrentUserRequest.isPollingWithDefer()) {
-            return buildUseCaseForTypePollingWithDefer();
-        } else if (getCurrentUserRequest.isPollingWithFromCallable()) {
-            return buildUseCaseForTypePollingWithFromCallable();
+        if (getCurrentUserRequest.isPollingWithRepeatWhen()) {
+            return buildUseCaseForTypePollingWithRepeatWhen();
         } else if (getCurrentUserRequest.isPollingWithSyncOnSubscribe()) {
             return buildUseCaseForTypePollingWithSyncOnSubscribe();
         } else {
@@ -68,50 +65,12 @@ public class GetCurrentUserUseCase extends UseCase {
         }
     }
 
-    private Observable buildUseCaseForTypePollingWithDefer() {
-        Observable<User> currentUserPolling = Observable.defer(() -> usersRepository.getCurrentUserAsObservable())
-                .repeatWhen(completed -> {
-                    logger.log(TAG, "repeatWhen");
-                    return completed.delay(1, TimeUnit.SECONDS);
-                });
-
+    private Observable buildUseCaseForTypePollingWithRepeatWhen() {
         return Observable.defer(
                 () -> usersRepository.askForCurrentUser()
-                        .flatMap(userRequested -> {
-                            logger.log(TAG, "currentUserPolling result askForCurrentUser=" + userRequested);
-                            return currentUserPolling;
-                        })
-                        .filter(user -> {
-                            logger.log(TAG, "filter " + user.toString() + " user isValid " + String.valueOf(user.isValid()));
-                            return user.isValid();
-                        })
-                        .takeUntil(user -> {
-                            logger.log(TAG, "takeUntil " + user.toString() + " user isValid " + String.valueOf(user.isValid()));
-                            return user.isValid();
-                        })
-                        .doOnTerminate(() -> {
-                            logger.log(TAG, "onTerminate");
-                            logger.unsubscribe();
-                        })
-        );
-    }
-
-    private Observable buildUseCaseForTypePollingWithFromCallable() {
-        Observable<User> currentUserPolling = Observable.fromCallable(new Callable<User>() {
-            @Override
-            public User call() throws Exception {
-                return usersRepository.getCurrentUser();
-            }
-        }).repeatWhen(completed -> {
-            logger.log(TAG, "repeatWhen");
-            return completed.delay(1, TimeUnit.SECONDS);
-        });
-
-        return Observable.defer(
-                () -> usersRepository.askForCurrentUser()
-                        .flatMap(userRequested -> {
-                            logger.log(TAG, "currentUserPolling result askForCurrentUser=" + userRequested);
-                            return currentUserPolling;
+                        .repeatWhen(completed -> {
+                            logger.log(TAG, "repeatWhen");
+                            return completed.delay(1, TimeUnit.SECONDS);
                         })
                         .filter(user -> {
                             logger.log(TAG, "filter " + user.toString() + " user isValid " + String.valueOf(user.isValid()));

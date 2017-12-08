@@ -5,19 +5,14 @@ import lombok.Data;
 @Data
 public class GetCurrentUserRequest {
 
-    public static final int POLLING_WITH_DEFER = 0;
-    public static final int POLLING_WITH_FROM_CALLABLE = 1;
-    public static final int POLLING_WITH_SYNCONSUBSCRIBE = 2;
+    public static final int POLLING_WITH_REPEAT_WHEN = 0;
+    public static final int POLLING_WITH_SYNCONSUBSCRIBE = 1;
 
     private int type;
     private String description;
 
-    public boolean isPollingWithDefer() {
-        return type == POLLING_WITH_DEFER;
-    }
-
-    public boolean isPollingWithFromCallable() {
-        return type == POLLING_WITH_FROM_CALLABLE;
+    public boolean isPollingWithRepeatWhen() {
+        return type == POLLING_WITH_REPEAT_WHEN;
     }
 
     public boolean isPollingWithSyncOnSubscribe() {

@@ -7,14 +7,14 @@ import rx.Observable;
 
 public class UsersDataRepository implements UsersRepository {
 
-    private User currentUser;
+    private User currentUser = new User();
 
     public UsersDataRepository() {
         currentUser = new User();
     }
 
     @Override
-    public Observable<Boolean> askForCurrentUser() {
+    public Observable<User> askForCurrentUser() {
         clear();
         Thread thread = new Thread() {
             @Override
@@ -28,7 +28,7 @@ public class UsersDataRepository implements UsersRepository {
             }
         };
         thread.start();
-        return Observable.just(true);
+        return Observable.fromCallable(() -> currentUser);
     }
 
     @Override

@@ -65,11 +65,8 @@ public class MainActivity extends RootActivity {
         int request = radioGroupRequestType.getCheckedRadioButtonId();
         GetCurrentUserRequest getCurrentUserRequest = new GetCurrentUserRequest();
         if (request == R.id.requestTypePollingWithDefer) {
-            getCurrentUserRequest.setType(GetCurrentUserRequest.POLLING_WITH_DEFER);
-            getCurrentUserRequest.setDescription(getString(R.string.polling_with_defer_description));
-        } else if (request == R.id.requestTypePollingWithFromCallable) {
-            getCurrentUserRequest.setType(GetCurrentUserRequest.POLLING_WITH_FROM_CALLABLE);
-            getCurrentUserRequest.setDescription(getString(R.string.polling_with_from_callable_description));
+            getCurrentUserRequest.setType(GetCurrentUserRequest.POLLING_WITH_REPEAT_WHEN);
+            getCurrentUserRequest.setDescription(getString(R.string.polling_with_repeat_when_description));
         } else if (request == R.id.requestTypePollingWithSyncOnSubscribe) {
             getCurrentUserRequest.setType(GetCurrentUserRequest.POLLING_WITH_SYNCONSUBSCRIBE);
             getCurrentUserRequest.setDescription(getString(R.string.polling_with_sync_subscribe_description));
@@ -87,7 +84,7 @@ public class MainActivity extends RootActivity {
         lynxView.setLynxConfig(lynxConfig);
     }
 
-    @OnClick({R.id.requestTypePollingWithDefer, R.id.requestTypePollingWithFromCallable, R.id.requestTypePollingWithSyncOnSubscribe})
+    @OnClick({R.id.requestTypePollingWithDefer, R.id.requestTypePollingWithSyncOnSubscribe})
     public void onRequestTypeChanged() {
         getCurrentUserRequest = createRequest();
         updateRequestDescription();
