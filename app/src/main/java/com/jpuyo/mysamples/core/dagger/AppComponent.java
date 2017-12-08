@@ -1,4 +1,4 @@
-package com.jpuyo.mysamples.infrastructure.dagger;
+package com.jpuyo.mysamples.core.dagger;
 
 import android.app.Application;
 

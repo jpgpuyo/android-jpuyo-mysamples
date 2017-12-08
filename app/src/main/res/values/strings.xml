@@ -2,6 +2,19 @@
 <resources>
     <string name="app_name">My samples</string>
 
-    <!-- main -->
+    <!-- home -->
+    <string name="home_title">My samples</string>
+
+    <!-- rxjava polling -->
+    <string name="rxjava_polling_title">RxJava Polling</string>
+
+    <string name="polling_with_repeat_when">Polling with defer</string>
+    <string name="polling_with_repeat_when_description">Click execute.\nWait for 5 seconds.\nPoll will be done every second until user is received.\nPolling method: repeatWhen</string>
+
+    <string name="polling_with_sync_on_subscribe">Polling with SyncOnSubscribe</string>
+    <string name="polling_with_sync_subscribe_description">Click execute.\nWait for 5 seconds.\nPoll will be done in every iteration until user is received.\nPolling method: SyncOnSubscribe</string>
+
     <string name="execute">Execute</string>
+    <string name="clear_log">Clear log</string>
+
 </resources>

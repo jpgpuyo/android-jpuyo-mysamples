@@ -1,11 +1,10 @@
-package com.jpuyo.mysamples.infrastructure.dagger;
+package com.jpuyo.mysamples.core.dagger;
 
 import com.jpuyo.android.infrastructure.executor.JobExecutor;
 import com.jpuyo.android.infrastructure.executor.PostExecutionThread;
 import com.jpuyo.android.infrastructure.executor.ThreadExecutor;
 import com.jpuyo.android.infrastructure.executor.UIThread;
-import com.jpuyo.mysamples.data.users.UsersDataRepository;
-import com.jpuyo.mysamples.domain.repository.UsersRepository;
+import com.jpuyo.mysamples.samples.rxpolling.repository.UsersRepository;
 
 import javax.inject.Singleton;
 
@@ -30,6 +29,6 @@ public class AppModule {
     @Provides
     @Singleton
     UsersRepository provideUsersRepository() {
-        return new UsersDataRepository();
+        return new UsersRepository();
     }
 }
